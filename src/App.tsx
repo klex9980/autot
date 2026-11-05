@@ -4,6 +4,8 @@ import { ListaAnnunci } from './features/annunci/ListaAnnunci';
 import { PaginaConfronto } from './features/confronto/PaginaConfronto';
 import { PaginaDati } from './features/dati/PaginaDati';
 import { PaginaGruppi } from './features/gruppi/PaginaGruppi';
+import { IncollaAnnuncio } from './features/incolla/IncollaAnnuncio';
+import { PaginaPunteggio } from './features/punteggio/PaginaPunteggio';
 import { FormModello } from './features/modelli/FormModello';
 import { ListaModelli } from './features/modelli/ListaModelli';
 import { FormMotore } from './features/motori/FormMotore';
@@ -31,10 +33,12 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/annunci" replace />} />
           <Route path="/annunci" element={<ListaAnnunci />} />
+          <Route path="/annunci/incolla" element={<IncollaAnnuncio />} />
           <Route path="/annunci/:id" element={<FormAnnuncio />} />
           <Route path="/gruppi" element={<PaginaGruppi />} />
           <Route path="/confronto" element={<PaginaConfronto />} />
           <Route path="/motori" element={<ListaMotori />} />
+          <Route path="/motori/punteggio" element={<PaginaPunteggio />} />
           <Route path="/motori/:id" element={<FormMotore />} />
           <Route path="/modelli" element={<ListaModelli />} />
           <Route path="/modelli/:id" element={<FormModello />} />

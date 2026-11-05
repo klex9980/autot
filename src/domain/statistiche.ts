@@ -43,3 +43,12 @@ export function statistiche(xs: AnnuncioArricchito[]): Statistiche {
     kgPerCv: media(xs.map((x) => x.kgPerCv)),
   };
 }
+
+/** Quantile con interpolazione lineare (q tra 0 e 1). */
+export function quantile(xs: (number | null | undefined)[], q: number): number | null {
+  const v = valori(xs).sort((a, b) => a - b);
+  if (!v.length) return null;
+  const pos = (v.length - 1) * q;
+  const i = Math.floor(pos);
+  return i + 1 < v.length ? v[i] + (v[i + 1] - v[i]) * (pos - i) : v[i];
+}

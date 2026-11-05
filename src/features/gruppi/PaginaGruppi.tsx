@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { BadgeConvenienza } from '../../components/Convenienza';
 import { useMemoria } from '../../components/memoria';
@@ -12,6 +12,8 @@ import {
 } from '../../domain/gruppi';
 import { euro, num } from '../../domain/numeri';
 import { statistiche, type Statistiche } from '../../domain/statistiche';
+// i grafici (libreria pesante) si caricano solo quando servono
+const Grafici = lazy(() => import('./Grafici'));
 
 function GrigliaStat({ s }: { s: Statistiche }) {
   const voci: [string, string][] = [
@@ -58,7 +60,7 @@ function CardGruppo({ g, convenienza }: { g: Gruppo; convenienza: Map<string, Co
 export function PaginaGruppi() {
   const dati = useAnnunciArricchiti();
   const [filtri, setFiltri] = useMemoria('filtri-gruppi', filtriVuoti());
-  const [vista, setVista] = useMemoria('vista-gruppi', { criterio: 'motore' as Criterio, ordine: 'naturale' as OrdinamentoGruppi });
+  const [vista, setVista] = useMemoria('vista-gruppi', { criterio: 'motore' as Criterio, ordine: 'naturale' as OrdinamentoGruppi, schermata: 'statistiche' as 'statistiche' | 'grafici' });
 
   const filtrati = useMemo(() => (dati ? applicaFiltri(dati.tutti, filtri) : []), [dati, filtri]);
   const gruppi = useMemo(() => ordinaGruppi(raggruppa(filtrati, vista.criterio), vista.ordine), [filtrati, vista]);
@@ -86,12 +88,18 @@ export function PaginaGruppi() {
           </select>
         </label>
       </div>
+      <div className="tabs">
+        <button className={'btn' + (vista.schermata === 'statistiche' ? ' primario' : '')} onClick={() => setVista({ ...vista, schermata: 'statistiche' })}>Statistiche</button>
+        <button className={'btn' + (vista.schermata === 'grafici' ? ' primario' : '')} onClick={() => setVista({ ...vista, schermata: 'grafici' })}>Grafici</button>
+      </div>
       <PannelloFiltri filtri={filtri} onChange={setFiltri} cilindriDisponibili={cilindri} risultati={filtrati.length} totale={dati.tutti.length} />
 
       {dati.tutti.length === 0 ? (
         <div className="vuoto">Nessun annuncio. Aggiungine qualcuno, oppure carica gli annunci di prova dalla sezione Dati.</div>
       ) : filtrati.length === 0 ? (
         <div className="vuoto">Nessun annuncio corrisponde ai filtri.</div>
+      ) : vista.schermata === 'grafici' ? (
+        <Suspense fallback={<p className="tenue">Caricamento grafici…</p>}><Grafici gruppi={gruppi} /></Suspense>
       ) : (
         <>
           <div className="card">

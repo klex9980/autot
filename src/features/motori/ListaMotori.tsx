@@ -4,9 +4,11 @@ import { Val } from '../../components/Campi';
 import { useCatalogo } from '../../db/hooks';
 import { ALIMENTAZIONI, etichetta, type Alimentazione } from '../../db/schema';
 import { num } from '../../domain/numeri';
+import { usePunteggi } from '../../db/usePunteggi';
 
 export function ListaMotori() {
   const cat = useCatalogo();
+  const { punteggi } = usePunteggi();
   const [cerca, setCerca] = useState('');
   const [alim, setAlim] = useState<Alimentazione | ''>('');
 
@@ -28,7 +30,8 @@ export function ListaMotori() {
       <div className="barra">
         <h1 style={{ margin: 0 }}>Motori</h1>
         <span className="spazio" />
-        <Link className="btn primario" to="/motori/nuovo">+ Nuovo motore</Link>
+        <Link className="btn" to="/motori/punteggio">🏆 Punteggio</Link>
+        <Link className="btn primario" to="/motori/nuovo">+ Nuovo</Link>
       </div>
       <div className="barra">
         <input className="input" style={{ flex: '1 1 200px' }} placeholder="Cerca sigla o costruttore…" value={cerca} onChange={(e) => setCerca(e.target.value)} />
@@ -52,7 +55,7 @@ export function ListaMotori() {
           </div>
           <div className="chips" style={{ marginTop: 8 }}>
             {variantiDi(f.id).map((v) => (
-              <span key={v.id} className="badge">{v.potenzaCv} CV{v.coppiaNm ? ` · ${v.coppiaNm} Nm` : ''}</span>
+              <span key={v.id} className="badge">{v.potenzaCv} CV{v.coppiaNm ? ` · ${v.coppiaNm} Nm` : ''}{punteggi.get(v.id)?.totale != null ? ` · ⭐ ${punteggi.get(v.id)!.totale}${punteggi.get(v.id)!.parziale ? '*' : ''}` : ''}</span>
             ))}
           </div>
         </Link>

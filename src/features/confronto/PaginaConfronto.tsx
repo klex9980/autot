@@ -8,6 +8,8 @@ import type { AnnuncioArricchito } from '../../domain/arricchisci';
 import { euro, num, percento } from '../../domain/numeri';
 import { mediana } from '../../domain/statistiche';
 import { useMemoria } from '../../components/memoria';
+import { usePunteggi } from '../../db/usePunteggi';
+import type { Punteggio } from '../../domain/punteggio';
 
 /** Una riga della tabella: come mostrare il valore e, se numerico, quale valore è il migliore. */
 interface Riga<T> {
@@ -61,7 +63,9 @@ function TabellaConfronto<T>({ elementi, intestazione, righe, onRimuovi }: {
   );
 }
 
-function ConfrontoAnnunci({ dati, ids, onChange }: { dati: DatiAnnunci; ids: string[]; onChange: (ids: string[]) => void }) {
+const testoPunteggio = (p: Punteggio | undefined) => (p?.totale == null ? '—' : `${p.totale}/100${p.parziale ? ' *' : ''}`);
+
+function ConfrontoAnnunci({ dati, ids, onChange, punteggi }: { dati: DatiAnnunci; ids: string[]; onChange: (ids: string[]) => void; punteggi: Map<string, Punteggio> }) {
   const perId = new Map(dati.tutti.map((x) => [x.annuncio.id, x]));
   const elementi = ids.map((id) => perId.get(id)).filter((x): x is AnnuncioArricchito => !!x);
   const conv = (x: AnnuncioArricchito) => dati.convenienza.get(x.annuncio.id);
@@ -75,6 +79,7 @@ function ConfrontoAnnunci({ dati, ids, onChange }: { dati: DatiAnnunci; ids: str
     { nome: 'Anno', mostra: (x) => x.annuncio.anno ?? '—', numero: (x) => x.annuncio.anno, meglio: 'max' },
     { nome: 'Km', mostra: (x) => num(x.annuncio.km, 'km', 0), numero: (x) => x.annuncio.km, meglio: 'min' },
     { nome: 'Motore', mostra: (x) => nomeVariante(dati.cat, x.annuncio.varianteId) },
+    { nome: 'Punteggio motore', mostra: (x) => testoPunteggio(punteggi.get(x.annuncio.varianteId ?? '')), numero: (x) => punteggi.get(x.annuncio.varianteId ?? '')?.totale, meglio: 'max' },
     { nome: 'Potenza', mostra: (x) => num(x.potenzaCv, 'CV'), numero: (x) => x.potenzaCv, meglio: 'max' },
     { nome: 'Coppia', mostra: (x) => num(x.variante?.coppiaNm, 'Nm'), numero: (x) => x.variante?.coppiaNm, meglio: 'max' },
     { nome: '€/CV', mostra: (x) => num(x.euroPerCv, '€', 0), numero: (x) => x.euroPerCv, meglio: 'min' },
@@ -131,7 +136,7 @@ interface MotoreConfronto {
   modelli: string[];
 }
 
-function ConfrontoMotori({ dati, ids, onChange }: { dati: DatiAnnunci; ids: string[]; onChange: (ids: string[]) => void }) {
+function ConfrontoMotori({ dati, ids, onChange, punteggi }: { dati: DatiAnnunci; ids: string[]; onChange: (ids: string[]) => void; punteggi: Map<string, Punteggio> }) {
   const { cat } = dati;
   const elementi: MotoreConfronto[] = ids.flatMap((id) => {
     const v = cat.varianti.get(id);
@@ -147,6 +152,8 @@ function ConfrontoMotori({ dati, ids, onChange }: { dati: DatiAnnunci; ids: stri
   const dv = (m: MotoreConfronto, campo: string) => (m.f?.daVerificare.includes(campo) || m.v.daVerificare.includes(campo) ? ' ⚠' : '');
 
   const righe: Riga<MotoreConfronto>[] = [
+    { nome: 'Punteggio', mostra: (m) => testoPunteggio(punteggi.get(m.v.id)), numero: (m) => punteggi.get(m.v.id)?.totale, meglio: 'max' },
+    { nome: 'Bollo stimato', mostra: (m) => `${euro(punteggi.get(m.v.id)?.dati.bollo)}/anno`, numero: (m) => punteggi.get(m.v.id)?.dati.bollo, meglio: 'min' },
     { nome: 'Costruttore', mostra: (m) => m.f?.costruttore || '—' },
     { nome: 'Potenza', mostra: (m) => `${m.v.potenzaCv} CV / ${m.v.potenzaKw} kW`, numero: (m) => m.v.potenzaCv, meglio: 'max' },
     { nome: 'Coppia', mostra: (m) => num(m.v.coppiaNm, 'Nm') + dv(m, 'coppiaNm'), numero: (m) => m.v.coppiaNm, meglio: 'max' },
@@ -190,6 +197,7 @@ function ConfrontoMotori({ dati, ids, onChange }: { dati: DatiAnnunci; ids: stri
 export function PaginaConfronto() {
   const dati = useAnnunciArricchiti();
   const { sel, setSel } = useSelezioneConfronto();
+  const { punteggi } = usePunteggi();
   const [tab, setTab] = useMemoria('tab-confronto', { tipo: 'annunci' as 'annunci' | 'motori' });
   const ids = useMemo(() => sel[tab.tipo], [sel, tab]);
   if (!dati) return <p className="tenue">Caricamento…</p>;
@@ -206,8 +214,8 @@ export function PaginaConfronto() {
       </div>
       <p className="tenue" style={{ fontSize: '.82rem' }}>In verde il valore migliore di ogni riga. ⚠ = dato da verificare.</p>
       {tab.tipo === 'annunci'
-        ? <ConfrontoAnnunci dati={dati} ids={ids} onChange={onChange} />
-        : <ConfrontoMotori dati={dati} ids={ids} onChange={onChange} />}
+        ? <ConfrontoAnnunci dati={dati} ids={ids} onChange={onChange} punteggi={punteggi} />
+        : <ConfrontoMotori dati={dati} ids={ids} onChange={onChange} punteggi={punteggi} />}
     </>
   );
 }

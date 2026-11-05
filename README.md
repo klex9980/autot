@@ -63,9 +63,11 @@ src/
 │   ├── gruppi.ts          raggruppamenti e fasce
 │   ├── statistiche.ts     media, mediana, statistiche di gruppo
 │   ├── convenienza.ts     confronto del prezzo con annunci simili
+│   ├── punteggio.ts       punteggio motore, bollo stimato, costo carburante
+│   ├── parser/            incolla-annuncio: estrazione dati e proposta motore
 │   └── demo.ts            annunci di prova fittizi
 ├── components/Campi.tsx   campi dei form, segnalazione "da verificare"
-└── features/              pagine: annunci, gruppi, confronto, motori, modelli, dati
+└── features/              pagine: annunci, incolla, gruppi (+ grafici), confronto, motori, punteggio, modelli, dati
 tests/                     test Vitest
 ```
 
@@ -131,8 +133,47 @@ Consiglio: esporta prima un file per vedere i nomi e l'ordine delle colonne.
 - **Annunci di prova**: in Dati puoi caricare ~120 annunci **inventati** (prezzi da una formula)
   per provare queste funzioni, ed eliminarli con un clic. Non toccano i tuoi annunci.
 
+## Incolla annuncio
+
+**Annunci → 📋 Incolla**: incolli il testo copiato da un annuncio (titolo, prezzo, caratteristiche)
+e l'app estrae marca, modello, anno (anche mese), km, prezzo, alimentazione, potenza (CV o kW),
+cilindrata e cambio, poi propone i 3 motori più probabili con una percentuale di affinità e i motivi.
+Si apre il modulo già compilato: controlli, correggi e salvi. Il testo originale resta nell'annuncio.
+
+Il parser funziona a regole (niente servizi esterni) e gestisce i casi tipici: "€ 18.900", "18.900 €",
+"Prezzo 6.500 euro", rate mensili e anticipi ignorati, "Km 45 000", "03/2019", "del 2016",
+"110 kW (150 CV)", "PureTech 100" (potenza senza unità dopo la sigla), "climatizzatore automatico"
+e "alzacristalli elettrici" non scambiati per cambio o alimentazione. Se un dato non è sicuro lo segnala.
+
+## Punteggio motore
+
+**Motori → 🏆 Punteggio**: punteggio 0–100 per ogni variante, con tre pesi regolabili (slider):
+- **Affidabilità**: voto 1–5 → 0–100.
+- **Costi di gestione**: media di costo carburante per 100 km (serve il consumo della variante;
+  prezzi carburante modificabili), **bollo stimato** (tariffe nazionali per kW e classe Euro,
+  superbollo oltre 185 kW; le regioni possono applicare variazioni o esenzioni) e tipo di
+  distribuzione (catena 80, cinghia 50, cinghia a bagno d'olio 30: valutazione dell'app).
+- **Peso/potenza**: kg/CV con il peso medio dei modelli che montano il motore.
+
+Carburante, bollo e kg/CV sono confrontati con tutti i motori del catalogo (migliore = 100,
+peggiore = 0). Se un dato manca la voce viene esclusa e il punteggio è marcato con * (parziale).
+Pesi e prezzi sono salvati nel database e inclusi nel backup. Il punteggio compare anche
+nella lista annunci (⭐), nella lista motori e nel confronto.
+
+## Grafici
+
+**Gruppi → Grafici**, con gli stessi filtri e lo stesso raggruppamento delle statistiche:
+- prezzo rispetto ai km e prezzo rispetto all'anno (tocca un punto per aprire l'annuncio);
+- distribuzione dei prezzi per gruppo (min–max, metà centrale, mediana).
+
+Nei grafici a punti sono colorati i 3 gruppi più numerosi, gli altri compaiono in grigio come
+"Altri": oltre tre colori i punti diventano difficili da distinguere, soprattutto per chi
+ha difficoltà a distinguere i colori. Ogni serie ha anche una forma diversa (cerchio, quadrato,
+triangolo). Per isolare gruppi specifici usa i filtri.
+
 ## Stato del progetto
 
 - [x] **Fase 1**: modello dati, seed, CRUD di motori/modelli/annunci, import/export CSV, backup
 - [x] **Fase 2**: raggruppamenti, filtri, statistiche per gruppo, annunci convenienti, vista confronto
-- [ ] **Fase 3**: parser incolla-annuncio, punteggio motore, grafici
+- [x] **Fase 3**: parser incolla-annuncio, punteggio motore, grafici
+- [ ] **Fase 4** (facoltativa): app installabile su smartphone e utilizzabile offline (PWA), pubblicazione online

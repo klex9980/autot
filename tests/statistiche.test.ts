@@ -103,3 +103,13 @@ describe('raggruppamento', () => {
     expect(g.map((x) => x.stat.prezzoMediano)).toEqual([5000, 8000, 11000, 14000]);
   });
 });
+
+describe('quantili', async () => {
+  const { quantile } = await import('../src/domain/statistiche');
+  it('quartili con interpolazione', () => {
+    expect(quantile([1, 2, 3, 4, 5], 0.5)).toBe(3);
+    expect(quantile([1, 2, 3, 4], 0.25)).toBe(1.75);
+    expect(quantile([10], 0.75)).toBe(10);
+    expect(quantile([], 0.5)).toBeNull();
+  });
+});

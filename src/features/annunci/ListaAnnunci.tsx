@@ -5,6 +5,8 @@ import { MAX_CONFRONTO, useMemoria, useSelezioneConfronto } from '../../componen
 import { nomeModello, nomeVariante } from '../../db/hooks';
 import { STATI_ANNUNCIO, etichetta, type StatoAnnuncio } from '../../db/schema';
 import { useAnnunciArricchiti } from '../../db/useAnnunci';
+import { usePunteggi } from '../../db/usePunteggi';
+import { BadgePunteggio } from '../../components/BadgePunteggio';
 import { euro, num } from '../../domain/numeri';
 
 type Ordine = 'recenti' | 'prezzo' | 'km' | 'anno' | 'convenienza';
@@ -16,6 +18,7 @@ export function ListaAnnunci() {
   });
   const [cerca, setCerca] = useState('');
   const { sel, toggle } = useSelezioneConfronto();
+  const { punteggi } = usePunteggi();
 
   const visibili = useMemo(() => {
     if (!dati) return [];
@@ -50,7 +53,8 @@ export function ListaAnnunci() {
       <div className="barra">
         <h1 style={{ margin: 0 }}>Annunci</h1>
         <span className="spazio" />
-        <Link className="btn primario" to="/annunci/nuovo">+ Nuovo annuncio</Link>
+        <Link className="btn" to="/annunci/incolla">📋 Incolla</Link>
+        <Link className="btn primario" to="/annunci/nuovo">+ Nuovo</Link>
       </div>
       <div className="barra">
         <input className="input" style={{ flex: '1 1 200px' }} placeholder="Cerca modello, motore, città…" value={cerca} onChange={(e) => setCerca(e.target.value)} />
@@ -96,6 +100,7 @@ export function ListaAnnunci() {
                 {a.citta && <span>{a.citta}</span>}
                 <span className={`badge stato-${a.stato}`}>{etichetta(a.stato)}</span>
                 <BadgeConvenienza c={convenienza.get(a.id)} />
+                {a.varianteId && <BadgePunteggio p={punteggi.get(a.varianteId)} />}
                 {prec != null && a.prezzo != null && prec > a.prezzo && (
                   <span className="badge avviso">ribassato da {euro(prec)}</span>
                 )}

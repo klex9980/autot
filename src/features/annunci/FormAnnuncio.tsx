@@ -1,15 +1,28 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { CampoNumero, CampoScelta, CampoTesto } from '../../components/Campi';
 import { DettaglioConvenienza } from '../../components/Convenienza';
 import { MAX_CONFRONTO, useSelezioneConfronto } from '../../components/memoria';
 import { useAnnunciArricchiti } from '../../db/useAnnunci';
 import { db, nuovoId, oggiIso } from '../../db/db';
-import { nomeModello, ordinaModelli, useCatalogo } from '../../db/hooks';
+import { nomeModello, nomeVariante, ordinaModelli, useCatalogo } from '../../db/hooks';
 import {
   CAMBI, SI_NO_NONSO, STATI_ANNUNCIO, VENDITORI, etichetta, type Annuncio,
 } from '../../db/schema';
 import { euro } from '../../domain/numeri';
+import type { BozzaDaTesto } from '../incolla/IncollaAnnuncio';
+
+/** Annuncio precompilato con i dati estratti dal testo incollato. */
+function daBozza(b: BozzaDaTesto): Annuncio {
+  const p = b.parser;
+  return {
+    ...annuncioVuoto(),
+    modelloId: p.modelloId, varianteId: b.candidati[0]?.varianteId ?? null,
+    anno: p.anno, km: p.km, prezzo: p.prezzo, cambio: p.cambio,
+    link: b.link, testoOriginale: b.testo,
+    note: !p.modelloId && p.marca ? `Modello indicato: ${p.marca} ${p.modelloTesto ?? ''}`.trim() : '',
+  };
+}
 
 const annuncioVuoto = (): Annuncio => ({
   id: nuovoId(), modelloId: null, varianteId: null, allestimento: '', anno: null, km: null, prezzo: null,
@@ -25,7 +38,8 @@ export function FormAnnuncio() {
   const cat = useCatalogo();
   const dati = useAnnunciArricchiti();
   const { sel, toggle } = useSelezioneConfronto();
-  const [a, setA] = useState<Annuncio | null>(nuovo ? annuncioVuoto() : null);
+  const bozza = (useLocation().state as { bozza?: BozzaDaTesto } | null)?.bozza;
+  const [a, setA] = useState<Annuncio | null>(nuovo ? (bozza ? daBozza(bozza) : annuncioVuoto()) : null);
   const [prezzoSalvato, setPrezzoSalvato] = useState<number | null>(null);
   const [tuttiMotori, setTuttiMotori] = useState(false);
   const [errore, setErrore] = useState('');
@@ -78,6 +92,29 @@ export function FormAnnuncio() {
     <>
       <h1>{nuovo ? 'Nuovo annuncio' : 'Modifica annuncio'}</h1>
       {errore && <div className="messaggio">{errore}</div>}
+      {nuovo && bozza && (
+        <div className="card">
+          <div className="titolo">Dati estratti dal testo: controllali prima di salvare</div>
+          {bozza.parser.avvisi.length > 0 && <div className="messaggio" style={{ margin: '8px 0' }}>{bozza.parser.avvisi.join('\n')}</div>}
+          {bozza.candidati.length > 0 && (
+            <>
+              <div className="tenue" style={{ fontSize: '.85rem', margin: '8px 0 4px' }}>Motori proposti (tocca per scegliere):</div>
+              <div className="chips">
+                {bozza.candidati.map((c) => (
+                  <button key={c.varianteId} type="button" className={'chip' + (a.varianteId === c.varianteId ? ' attivo' : '')}
+                    onClick={() => {
+                      const modelloOk = !a.modelloId || cat.motoriPerModello.get(a.modelloId)?.has(c.varianteId);
+                      if (!modelloOk) setTuttiMotori(true);
+                      set('varianteId', c.varianteId);
+                    }}>
+                    {nomeVariante(cat, c.varianteId)} · {c.punteggio}%
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      )}
       {!nuovo && (
         <div className="card barra">
           <div style={{ flex: '1 1 220px' }}><DettaglioConvenienza c={dati?.convenienza.get(a.id)} /></div>
