@@ -40,6 +40,21 @@ npm run build        # versione di produzione in dist/
 npm run preview      # serve la build localmente
 ```
 
+### Pubblicazione su GitHub Pages
+
+Il file `.github/workflows/pubblica.yml` esegue test e build e pubblica l'app a ogni push su `main`.
+Serve solo una volta: su GitHub, **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+L'indirizzo sarà `https://<utente>.github.io/<repository>/`.
+
+### Installarla sul telefono
+
+Apri l'indirizzo pubblicato e:
+- **Android (Chrome)**: menu ⋮ → *Installa app* (o *Aggiungi a schermata Home*);
+- **iPhone (Safari)**: pulsante Condividi → *Aggiungi alla schermata Home*.
+
+Dopo il primo caricamento funziona anche senza connessione. Gli aggiornamenti si scaricano da soli
+alla successiva apertura con la rete.
+
 La cartella `dist/` è un sito statico: si può pubblicare così com'è su GitHub Pages,
 Netlify o simili (usa percorsi relativi e il routing con `#`, quindi non serve configurazione).
 
@@ -176,4 +191,4 @@ triangolo). Per isolare gruppi specifici usa i filtri.
 - [x] **Fase 1**: modello dati, seed, CRUD di motori/modelli/annunci, import/export CSV, backup
 - [x] **Fase 2**: raggruppamenti, filtri, statistiche per gruppo, annunci convenienti, vista confronto
 - [x] **Fase 3**: parser incolla-annuncio, punteggio motore, grafici
-- [ ] **Fase 4** (facoltativa): app installabile su smartphone e utilizzabile offline (PWA), pubblicazione online
+- [x] **Fase 4**: app installabile su smartphone e utilizzabile offline (PWA), pubblicazione automatica su GitHub Pages
