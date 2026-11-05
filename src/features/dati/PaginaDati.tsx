@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { db } from '../../db/db';
 import { COLONNE_CSV, NOMI_TABELLE_CSV, type TabellaCsv } from '../../domain/colonneCsv';
+import { generaAnnunciDemo, PREFISSO_DEMO } from '../../domain/demo';
 import { esportaBackup, esportaCsv, importaCsv, ripristinaBackup, scaricaFile } from '../../domain/backup';
 
 const TABELLE = Object.keys(COLONNE_CSV) as TabellaCsv[];
@@ -33,6 +34,18 @@ export function PaginaDati() {
     if (!confirm('Il ripristino SOSTITUISCE tutti i dati attuali con quelli del backup. Continuare?')) return;
     try { await ripristinaBackup(db, await leggiFile(file)); setMsg('Backup ripristinato.'); }
     catch (e) { setMsg(`Errore: ${(e as Error).message}`); }
+  }
+
+  async function caricaDemo() {
+    const [m, v, mm] = await Promise.all([db.modelli.toArray(), db.varianti.toArray(), db.modelliMotori.toArray()]);
+    const demo = generaAnnunciDemo(m, v, mm, new Date().getFullYear());
+    await db.annunci.bulkPut(demo);
+    setMsg(`Caricati ${demo.length} annunci di prova (fittizi).`);
+  }
+
+  async function eliminaDemo() {
+    const n = await db.annunci.where('id').startsWith(PREFISSO_DEMO).delete();
+    setMsg(`Eliminati ${n} annunci di prova.`);
   }
 
   async function reset() {
@@ -73,6 +86,18 @@ export function PaginaDati() {
           </label>
         </div>
       ))}
+
+      <h2>Annunci di prova</h2>
+      <div className="card">
+        <p className="tenue" style={{ marginTop: 0 }}>
+          Circa 120 annunci <strong>inventati</strong> (prezzi da una formula, non dal mercato) per provare gruppi,
+          statistiche e confronti. Hanno la nota “Annuncio di PROVA” e non toccano i tuoi annunci.
+        </p>
+        <div className="barra" style={{ marginBottom: 0 }}>
+          <button className="btn" onClick={caricaDemo}>Carica annunci di prova</button>
+          <button className="btn pericolo" onClick={eliminaDemo}>Elimina annunci di prova</button>
+        </div>
+      </div>
 
       <h2>Ripristino iniziale</h2>
       <div className="card">

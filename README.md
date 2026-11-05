@@ -57,9 +57,15 @@ src/
 │   ├── numeri.ts          lettura numeri all'italiana ("12.500", "4,5"), formattazione
 │   ├── csv.ts             import/export CSV generico
 │   ├── colonneCsv.ts      colonne CSV di ogni tabella
-│   └── backup.ts          backup JSON, import/export CSV sul database
+│   ├── backup.ts          backup JSON, import/export CSV sul database
+│   ├── arricchisci.ts     annuncio + dati motore/modello, €/CV e kg/CV
+│   ├── filtri.ts          filtri per cilindri, alimentazione, prezzo, anno, km…
+│   ├── gruppi.ts          raggruppamenti e fasce
+│   ├── statistiche.ts     media, mediana, statistiche di gruppo
+│   ├── convenienza.ts     confronto del prezzo con annunci simili
+│   └── demo.ts            annunci di prova fittizi
 ├── components/Campi.tsx   campi dei form, segnalazione "da verificare"
-└── features/              pagine: annunci, motori, modelli, dati
+└── features/              pagine: annunci, gruppi, confronto, motori, modelli, dati
 tests/                     test Vitest
 ```
 
@@ -104,8 +110,29 @@ Da **Dati** puoi esportare/importare ogni tabella. Formato:
 
 Consiglio: esporta prima un file per vedere i nomi e l'ordine delle colonne.
 
+## Gruppi, statistiche e confronto
+
+- **Gruppi**: raggruppa gli annunci per motore (variante o famiglia), modello, numero cilindri,
+  alimentazione, aspirato/turbo, distribuzione, fascia di cilindrata, prezzo, anno o km.
+  Per ogni gruppo: prezzo medio e mediano, min–max, km medi, anno medio, €/CV, kg/CV, numero annunci.
+  I filtri (pannello “Filtri”) e il criterio scelto restano memorizzati nel browser.
+- **€/CV** = prezzo / potenza. **kg/CV** = peso a vuoto del modello / potenza (più basso = più brillante).
+- **Annunci convenienti** (💰): un annuncio è conveniente se il prezzo è sotto la **mediana** di
+  almeno 5 annunci simili. Il criterio si allarga solo se i simili sono troppo pochi:
+  1. stesso modello e motore, anno ±2, km ±30.000
+  2. stesso motore su qualsiasi modello, anno ±2, km ±30.000
+  3. stesso motore, anno ±3, km ±50.000
+
+  Contano anche gli annunci scartati (sono comunque dati di mercato). Se i simili sono meno di 5
+  l'app lo dice invece di dare un giudizio. Nel dettaglio dell'annuncio vedi mediana, numero di
+  annunci usati e criterio applicato.
+- **Confronto**: fino a 4 annunci o 4 motori affiancati; in verde il valore migliore di ogni riga.
+  Aggiungi annunci con “⇄ Confronta” nella lista o dal dettaglio.
+- **Annunci di prova**: in Dati puoi caricare ~120 annunci **inventati** (prezzi da una formula)
+  per provare queste funzioni, ed eliminarli con un clic. Non toccano i tuoi annunci.
+
 ## Stato del progetto
 
 - [x] **Fase 1**: modello dati, seed, CRUD di motori/modelli/annunci, import/export CSV, backup
-- [ ] **Fase 2**: raggruppamenti, filtri, statistiche per gruppo, annunci convenienti, vista confronto
+- [x] **Fase 2**: raggruppamenti, filtri, statistiche per gruppo, annunci convenienti, vista confronto
 - [ ] **Fase 3**: parser incolla-annuncio, punteggio motore, grafici

@@ -24,12 +24,19 @@ export function parseNumero(testo: string | null | undefined): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-const fmtEuro = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
-const fmtNum = new Intl.NumberFormat('it-IT', { maximumFractionDigits: 1 });
+/** Formatta all'italiana con il punto delle migliaia anche sotto 10.000 (Intl lo omette). */
+export function formatta(n: number, decimali = 1): string {
+  const [int, dec] = Math.abs(n).toFixed(decimali).split('.');
+  const conPunti = int.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const decPulito = dec?.replace(/0+$/, '');
+  return (n < 0 ? '-' : '') + conPunti + (decPulito ? ',' + decPulito : '');
+}
 
-export const euro = (n: number | null | undefined) => (n == null ? '—' : fmtEuro.format(n));
-export const num = (n: number | null | undefined, suffisso = '') =>
-  n == null ? '—' : fmtNum.format(n) + (suffisso ? ` ${suffisso}` : '');
+export const euro = (n: number | null | undefined) => (n == null ? '—' : `${formatta(Math.round(n), 0)} €`);
+export const num = (n: number | null | undefined, suffisso = '', decimali = 1) =>
+  n == null ? '—' : formatta(n, decimali) + (suffisso ? ` ${suffisso}` : '');
+export const percento = (x: number | null | undefined) =>
+  x == null ? '—' : `${x > 0 ? '+' : ''}${formatta(x * 100, 0)}%`;
 
 export const cvDaKw = (kw: number) => Math.round(kw * 1.35962);
 export const kwDaCv = (cv: number) => Math.round(cv / 1.35962);

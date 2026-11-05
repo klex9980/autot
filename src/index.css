@@ -85,3 +85,47 @@ table.tab th, table.tab td { text-align: left; padding: 6px 8px; border-bottom: 
 .chip { display: inline-flex; gap: 6px; align-items: center; padding: 6px 10px; border: 1px solid var(--bordo); border-radius: 999px; font-size: .88rem; cursor: pointer; background: var(--card); }
 .chip.attivo { border-color: var(--primario); color: var(--primario); font-weight: 600; }
 .chip input { margin: 0; }
+
+.badge.conveniente { background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok); border-color: transparent; font-weight: 600; }
+.testo-ok { color: var(--ok); }
+.migliore { color: var(--ok); font-weight: 700; }
+
+details.pannello { background: var(--card); border: 1px solid var(--bordo); border-radius: var(--radius); margin-bottom: 12px; }
+details.pannello > summary { padding: 10px 14px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
+details.pannello > summary::-webkit-details-marker { display: none; }
+details.pannello > summary::after { content: '▾'; color: var(--tenue); }
+details.pannello[open] > summary::after { content: '▴'; }
+details.pannello .corpo { padding: 0 14px 14px; }
+.gruppo-filtro { margin-top: 10px; }
+.gruppo-filtro > .nome { font-size: .82rem; color: var(--tenue); margin-bottom: 4px; }
+.intervallo { display: flex; gap: 8px; align-items: center; }
+.intervallo input { flex: 1; min-width: 0; }
+.griglia-filtri { display: grid; grid-template-columns: 1fr; gap: 0 16px; }
+@media (min-width: 600px) { .griglia-filtri { grid-template-columns: 1fr 1fr; } }
+
+.stat-griglia { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 12px; margin-top: 10px; }
+@media (min-width: 600px) { .stat-griglia { grid-template-columns: repeat(4, 1fr); } }
+.stat .et { font-size: .75rem; color: var(--tenue); }
+.stat .va { font-weight: 600; font-variant-numeric: tabular-nums; }
+.gruppi { display: grid; gap: 10px; }
+@media (min-width: 900px) { .gruppi { grid-template-columns: 1fr 1fr; } }
+.gruppi .card { margin: 0; }
+.mini-lista { margin-top: 8px; border-top: 1px solid var(--bordo); }
+.mini-lista a { display: flex; justify-content: space-between; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--bordo); text-decoration: none; color: inherit; font-size: .88rem; }
+
+table.confronto { border-collapse: separate; border-spacing: 0; font-size: .9rem; min-width: 100%; }
+table.confronto th, table.confronto td { padding: 8px 10px; border-bottom: 1px solid var(--bordo); vertical-align: top; text-align: left; min-width: 112px; }
+table.confronto th[scope=row] { position: sticky; left: 0; background: var(--card); color: var(--tenue); font-weight: 500; min-width: 88px; max-width: 110px; z-index: 1; font-size: .82rem; }
+table.confronto thead th { background: var(--card); }
+table.confronto td.testo-lungo { font-size: .82rem; min-width: 180px; }
+.tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.sel-confronto { position: relative; }
+.btn-confronta { font-size: .78rem; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--bordo); background: var(--card); color: var(--tenue); cursor: pointer; min-height: 28px; }
+.btn-confronta.attivo { border-color: var(--primario); color: var(--primario); font-weight: 600; }
+.barra-fissa { position: fixed; left: 16px; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 9; display: flex; justify-content: center; }
+@media (min-width: 760px) { .barra-fissa { bottom: 20px; } }
+.nav a { font-size: .7rem; }
+@media (min-width: 760px) { .nav a { font-size: .95rem; } }
+
+.intestazione-col { display: flex; gap: 6px; align-items: flex-start; justify-content: space-between; }
+@media (max-width: 480px) { table.confronto { font-size: .84rem; } table.confronto th, table.confronto td { padding: 6px 8px; } }

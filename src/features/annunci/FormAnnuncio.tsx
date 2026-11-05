@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CampoNumero, CampoScelta, CampoTesto } from '../../components/Campi';
+import { DettaglioConvenienza } from '../../components/Convenienza';
+import { MAX_CONFRONTO, useSelezioneConfronto } from '../../components/memoria';
+import { useAnnunciArricchiti } from '../../db/useAnnunci';
 import { db, nuovoId, oggiIso } from '../../db/db';
 import { nomeModello, ordinaModelli, useCatalogo } from '../../db/hooks';
 import {
@@ -20,6 +23,8 @@ export function FormAnnuncio() {
   const nuovo = !id || id === 'nuovo';
   const nav = useNavigate();
   const cat = useCatalogo();
+  const dati = useAnnunciArricchiti();
+  const { sel, toggle } = useSelezioneConfronto();
   const [a, setA] = useState<Annuncio | null>(nuovo ? annuncioVuoto() : null);
   const [prezzoSalvato, setPrezzoSalvato] = useState<number | null>(null);
   const [tuttiMotori, setTuttiMotori] = useState(false);
@@ -73,6 +78,16 @@ export function FormAnnuncio() {
     <>
       <h1>{nuovo ? 'Nuovo annuncio' : 'Modifica annuncio'}</h1>
       {errore && <div className="messaggio">{errore}</div>}
+      {!nuovo && (
+        <div className="card barra">
+          <div style={{ flex: '1 1 220px' }}><DettaglioConvenienza c={dati?.convenienza.get(a.id)} /></div>
+          <button className={'btn-confronta' + (sel.annunci.includes(a.id) ? ' attivo' : '')}
+            disabled={!sel.annunci.includes(a.id) && sel.annunci.length >= MAX_CONFRONTO}
+            onClick={() => toggle('annunci', a.id)}>
+            {sel.annunci.includes(a.id) ? '✓ Nel confronto' : '⇄ Aggiungi al confronto'}
+          </button>
+        </div>
+      )}
       <div className="form card">
         <div className="campo intero">
           <label><span>Modello</span></label>

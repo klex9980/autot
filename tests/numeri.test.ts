@@ -17,3 +17,16 @@ describe('conversione CV/kW', () => {
     expect(kwDaCv(150)).toBe(110);
   });
 });
+
+describe('formattazione', () => {
+  it('punto delle migliaia sempre, virgola decimale', async () => {
+    const { formatta, euro, percento } = await import('../src/domain/numeri');
+    expect(formatta(5000, 0)).toBe('5.000');
+    expect(formatta(1234567.25, 1)).toBe('1.234.567,3');
+    expect(formatta(12.0)).toBe('12');
+    expect(formatta(-950)).toBe('-950');
+    expect(euro(9899.6)).toBe('9.900 €');
+    expect(percento(-0.123)).toBe('-12%');
+    expect(percento(0.25)).toBe('+25%');
+  });
+});

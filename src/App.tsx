@@ -1,7 +1,9 @@
 import { HashRouter, NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import { FormAnnuncio } from './features/annunci/FormAnnuncio';
 import { ListaAnnunci } from './features/annunci/ListaAnnunci';
+import { PaginaConfronto } from './features/confronto/PaginaConfronto';
 import { PaginaDati } from './features/dati/PaginaDati';
+import { PaginaGruppi } from './features/gruppi/PaginaGruppi';
 import { FormModello } from './features/modelli/FormModello';
 import { ListaModelli } from './features/modelli/ListaModelli';
 import { FormMotore } from './features/motori/FormMotore';
@@ -9,6 +11,8 @@ import { ListaMotori } from './features/motori/ListaMotori';
 
 const VOCI = [
   { to: '/annunci', icona: '🚗', testo: 'Annunci' },
+  { to: '/gruppi', icona: '📊', testo: 'Gruppi' },
+  { to: '/confronto', icona: '⇄', testo: 'Confronto' },
   { to: '/motori', icona: '⚙️', testo: 'Motori' },
   { to: '/modelli', icona: '📋', testo: 'Modelli' },
   { to: '/dati', icona: '💾', testo: 'Dati' },
@@ -28,6 +32,8 @@ export default function App() {
           <Route path="/" element={<Navigate to="/annunci" replace />} />
           <Route path="/annunci" element={<ListaAnnunci />} />
           <Route path="/annunci/:id" element={<FormAnnuncio />} />
+          <Route path="/gruppi" element={<PaginaGruppi />} />
+          <Route path="/confronto" element={<PaginaConfronto />} />
           <Route path="/motori" element={<ListaMotori />} />
           <Route path="/motori/:id" element={<FormMotore />} />
           <Route path="/modelli" element={<ListaModelli />} />
