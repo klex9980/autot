@@ -1,0 +1,917 @@
+[
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm",
+      "affidabilita",
+      "difettiNoti"
+    ],
+    "difettiNoti": "Generalmente considerato robusto. Difetti specifici da verificare.",
+    "id": "vw-1.0-tsi",
+    "sigla": "EA211 1.0 TSI",
+    "costruttore": "Volkswagen",
+    "cilindrata": 999,
+    "cilindri": 3,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "vw-1.0-tsi-95",
+        "potenzaCv": 95,
+        "potenzaKw": 70,
+        "coppiaNm": 175,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "vw-1.0-tsi-110",
+        "potenzaCv": 110,
+        "potenzaKw": 81,
+        "coppiaNm": 200,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm",
+      "affidabilita"
+    ],
+    "difettiNoti": "Da non confondere con il precedente 1.4 TSI EA111 (a catena, noto per problemi di catena distribuzione).",
+    "id": "vw-1.4-tsi",
+    "sigla": "EA211 1.4 TSI",
+    "costruttore": "Volkswagen",
+    "cilindrata": 1395,
+    "cilindri": 4,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "vw-1.4-tsi-125",
+        "potenzaCv": 125,
+        "potenzaKw": 92,
+        "coppiaNm": 200,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "vw-1.4-tsi-150",
+        "potenzaCv": 150,
+        "potenzaKw": 110,
+        "coppiaNm": 250,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm",
+      "affidabilita"
+    ],
+    "difettiNoti": "Segnalazioni di esitazioni/strappi a freddo sui primi esemplari (corretti con aggiornamenti software). Disattivazione cilindri (ACT) sul 150 CV.",
+    "id": "vw-1.5-tsi-evo",
+    "sigla": "EA211 evo 1.5 TSI",
+    "costruttore": "Volkswagen",
+    "cilindrata": 1498,
+    "cilindri": 4,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia",
+    "affidabilita": 3,
+    "varianti": [
+      {
+        "id": "vw-1.5-tsi-evo-130",
+        "potenzaCv": 130,
+        "potenzaKw": 96,
+        "coppiaNm": 200,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "vw-1.5-tsi-evo-150",
+        "potenzaCv": 150,
+        "potenzaKw": 110,
+        "coppiaNm": 250,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm",
+      "affidabilita"
+    ],
+    "difettiNoti": "FAP/EGR sensibili a uso esclusivamente urbano (tipico dei diesel moderni).",
+    "id": "vw-1.6-tdi",
+    "sigla": "EA288 1.6 TDI",
+    "costruttore": "Volkswagen",
+    "cilindrata": 1598,
+    "cilindri": 4,
+    "alimentazione": "diesel",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "vw-1.6-tdi-115",
+        "potenzaCv": 115,
+        "potenzaKw": 85,
+        "coppiaNm": 250,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm",
+      "affidabilita"
+    ],
+    "difettiNoti": "FAP/EGR sensibili a uso esclusivamente urbano. Versioni pre-2015 coinvolte nel caso emissioni (verificare richiamo eseguito).",
+    "id": "vw-2.0-tdi",
+    "sigla": "EA288 2.0 TDI",
+    "costruttore": "Volkswagen",
+    "cilindrata": 1968,
+    "cilindri": 4,
+    "alimentazione": "diesel",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "vw-2.0-tdi-150",
+        "potenzaCv": 150,
+        "potenzaKw": 110,
+        "coppiaNm": 340,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm"
+    ],
+    "difettiNoti": "Motore semplice ed economico da riparare. Prestazioni modeste.",
+    "id": "fiat-1.2-fire",
+    "sigla": "1.2 Fire 8V",
+    "costruttore": "Fiat",
+    "cilindrata": 1242,
+    "cilindri": 4,
+    "alimentazione": "benzina",
+    "aspirazione": "aspirato",
+    "distribuzione": "cinghia",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "fiat-1.2-fire-69",
+        "potenzaCv": 69,
+        "potenzaKw": 51,
+        "coppiaNm": 102,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm",
+      "affidabilita"
+    ],
+    "difettiNoti": "Bifuel benzina/GPL di fabbrica. Verificare revisione/scadenza serbatoio GPL.",
+    "id": "fiat-1.4-fire-gpl",
+    "sigla": "1.4 Fire 8V GPL",
+    "costruttore": "Fiat",
+    "cilindrata": 1368,
+    "cilindri": 4,
+    "alimentazione": "GPL",
+    "aspirazione": "aspirato",
+    "distribuzione": "cinghia",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "fiat-1.4-fire-gpl-77",
+        "potenzaCv": 77,
+        "potenzaKw": 57,
+        "coppiaNm": null,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "Potenza riferita al funzionamento a benzina (da verificare)",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita"
+    ],
+    "difettiNoti": "Consumi reali molto superiori a quelli omologati. Attuatore MultiAir da controllare. Vibrazioni tipiche del bicilindrico.",
+    "id": "fiat-0.9-twinair",
+    "sigla": "0.9 TwinAir",
+    "costruttore": "Fiat",
+    "cilindrata": 875,
+    "cilindri": 2,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "catena",
+    "affidabilita": 3,
+    "varianti": [
+      {
+        "id": "fiat-0.9-twinair-85",
+        "potenzaCv": 85,
+        "potenzaKw": 63,
+        "coppiaNm": 145,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita"
+    ],
+    "difettiNoti": "Possibile allungamento catena ad alto chilometraggio. FAP sulle versioni Euro 5/6.",
+    "id": "fiat-1.3-multijet",
+    "sigla": "1.3 MultiJet",
+    "costruttore": "Fiat",
+    "cilindrata": 1248,
+    "cilindri": 4,
+    "alimentazione": "diesel",
+    "aspirazione": "turbo",
+    "distribuzione": "catena",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "fiat-1.3-multijet-75",
+        "potenzaCv": 75,
+        "potenzaKw": 55,
+        "coppiaNm": 190,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "fiat-1.3-multijet-95",
+        "potenzaCv": 95,
+        "potenzaKw": 70,
+        "coppiaNm": 200,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita"
+    ],
+    "difettiNoti": "Motore relativamente recente: dati di affidabilità a lungo termine limitati.",
+    "id": "fiat-1.0-firefly-hybrid",
+    "sigla": "1.0 FireFly Hybrid",
+    "costruttore": "Fiat",
+    "cilindrata": 999,
+    "cilindri": 3,
+    "alimentazione": "mild_hybrid",
+    "aspirazione": "aspirato",
+    "distribuzione": "catena",
+    "affidabilita": null,
+    "varianti": [
+      {
+        "id": "fiat-1.0-firefly-hybrid-70",
+        "potenzaCv": 70,
+        "potenzaKw": 51,
+        "coppiaNm": 92,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm"
+    ],
+    "difettiNoti": "Degrado della cinghia a bagno d’olio con residui nel circuito di lubrificazione (rischio rottura/pompa a vuoto), consumo olio. Intervallo di sostituzione ridotto dal costruttore: verificare storico e campagne di garanzia estesa.",
+    "id": "psa-1.2-puretech",
+    "sigla": "1.2 PureTech (EB2)",
+    "costruttore": "PSA / Stellantis",
+    "cilindrata": 1199,
+    "cilindri": 3,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia_bagno_olio",
+    "affidabilita": 2,
+    "varianti": [
+      {
+        "id": "psa-1.2-puretech-100",
+        "potenzaCv": 100,
+        "potenzaKw": 74,
+        "coppiaNm": 205,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "psa-1.2-puretech-110",
+        "potenzaCv": 110,
+        "potenzaKw": 81,
+        "coppiaNm": 205,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "psa-1.2-puretech-130",
+        "potenzaCv": 130,
+        "potenzaKw": 96,
+        "coppiaNm": 230,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "distribuzione",
+      "intervalloDistribuzioneKm",
+      "affidabilita",
+      "difettiNoti"
+    ],
+    "difettiNoti": "Segnalati problemi alla catenella tra gli alberi a camme su alcuni esemplari. Sistema AdBlue da controllare.",
+    "id": "psa-1.5-bluehdi",
+    "sigla": "1.5 BlueHDi (DV5)",
+    "costruttore": "PSA / Stellantis",
+    "cilindrata": 1499,
+    "cilindri": 4,
+    "alimentazione": "diesel",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia",
+    "affidabilita": 3,
+    "varianti": [
+      {
+        "id": "psa-1.5-bluehdi-102",
+        "potenzaCv": 102,
+        "potenzaKw": 75,
+        "coppiaNm": 250,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "psa-1.5-bluehdi-130",
+        "potenzaCv": 130,
+        "potenzaKw": 96,
+        "coppiaNm": 300,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita",
+      "difettiNoti"
+    ],
+    "difettiNoti": "Da verificare.",
+    "id": "renault-0.9-tce",
+    "sigla": "0.9 TCe (H4Bt)",
+    "costruttore": "Renault",
+    "cilindrata": 898,
+    "cilindri": 3,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "catena",
+    "affidabilita": 3,
+    "varianti": [
+      {
+        "id": "renault-0.9-tce-90",
+        "potenzaCv": 90,
+        "potenzaKw": 66,
+        "coppiaNm": 135,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita",
+      "difettiNoti"
+    ],
+    "difettiNoti": "Da verificare.",
+    "id": "renault-1.3-tce",
+    "sigla": "1.3 TCe (H5H)",
+    "costruttore": "Renault / Nissan / Mercedes",
+    "cilindrata": 1332,
+    "cilindri": 4,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "catena",
+    "affidabilita": 3,
+    "varianti": [
+      {
+        "id": "renault-1.3-tce-130",
+        "potenzaCv": 130,
+        "potenzaKw": 96,
+        "coppiaNm": 240,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "renault-1.3-tce-140",
+        "potenzaCv": 140,
+        "potenzaKw": 103,
+        "coppiaNm": 240,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm",
+      "affidabilita"
+    ],
+    "difettiNoti": "Sulle versioni più vecchie problemi alle bronzine di biella se la manutenzione dell’olio è trascurata. Versioni recenti considerate migliori.",
+    "id": "renault-1.5-dci",
+    "sigla": "1.5 dCi (K9K)",
+    "costruttore": "Renault",
+    "cilindrata": 1461,
+    "cilindri": 4,
+    "alimentazione": "diesel",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia",
+    "affidabilita": 3,
+    "varianti": [
+      {
+        "id": "renault-1.5-dci-90",
+        "potenzaCv": 90,
+        "potenzaKw": 66,
+        "coppiaNm": 220,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "renault-1.5-dci-110",
+        "potenzaCv": 110,
+        "potenzaKw": 81,
+        "coppiaNm": 260,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [],
+    "difettiNoti": "Considerato tra i più affidabili. Ciclo Atkinson, cambio e-CVT. Verificare stato batteria ibrida su esemplari molto chilometrati.",
+    "id": "toyota-1.8-hybrid",
+    "sigla": "1.8 Hybrid (2ZR-FXE)",
+    "costruttore": "Toyota",
+    "cilindrata": 1798,
+    "cilindri": 4,
+    "alimentazione": "ibrido",
+    "aspirazione": "aspirato",
+    "distribuzione": "catena",
+    "affidabilita": 5,
+    "varianti": [
+      {
+        "id": "toyota-1.8-hybrid-122",
+        "potenzaCv": 122,
+        "potenzaKw": 90,
+        "coppiaNm": null,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "Potenza di sistema (termico + elettrico)",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "toyota-1.8-hybrid-136",
+        "potenzaCv": 136,
+        "potenzaKw": 99,
+        "coppiaNm": null,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "Potenza di sistema (Auris/Prius generazioni precedenti)",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita",
+      "difettiNoti"
+    ],
+    "difettiNoti": "Da verificare (motore recente).",
+    "id": "toyota-1.5-hybrid",
+    "sigla": "1.5 Hybrid (M15A)",
+    "costruttore": "Toyota",
+    "cilindrata": 1490,
+    "cilindri": 3,
+    "alimentazione": "ibrido",
+    "aspirazione": "aspirato",
+    "distribuzione": "catena",
+    "affidabilita": 5,
+    "varianti": [
+      {
+        "id": "toyota-1.5-hybrid-116",
+        "potenzaCv": 116,
+        "potenzaKw": 85,
+        "coppiaNm": null,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "Potenza di sistema",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "intervalloDistribuzioneKm",
+      "affidabilita"
+    ],
+    "difettiNoti": "Problemi al circuito di raffreddamento (surriscaldamento) segnalati sui primi anni di produzione. Cinghia a bagno d’olio: rispettare tipo di olio e intervalli.",
+    "id": "ford-1.0-ecoboost",
+    "sigla": "1.0 EcoBoost",
+    "costruttore": "Ford",
+    "cilindrata": 999,
+    "cilindri": 3,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "cinghia_bagno_olio",
+    "affidabilita": 2,
+    "varianti": [
+      {
+        "id": "ford-1.0-ecoboost-100",
+        "potenzaCv": 100,
+        "potenzaKw": 74,
+        "coppiaNm": 170,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "ford-1.0-ecoboost-125",
+        "potenzaCv": 125,
+        "potenzaKw": 92,
+        "coppiaNm": 170,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "distribuzione",
+      "affidabilita",
+      "difettiNoti"
+    ],
+    "difettiNoti": "Da verificare.",
+    "id": "hyundai-1.0-tgdi",
+    "sigla": "1.0 T-GDi (Kappa)",
+    "costruttore": "Hyundai / Kia",
+    "cilindrata": 998,
+    "cilindri": 3,
+    "alimentazione": "benzina",
+    "aspirazione": "turbo",
+    "distribuzione": "catena",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "hyundai-1.0-tgdi-100",
+        "potenzaCv": 100,
+        "potenzaKw": 74,
+        "coppiaNm": 172,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "hyundai-1.0-tgdi-120",
+        "potenzaCv": 120,
+        "potenzaKw": 88,
+        "coppiaNm": 172,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita",
+      "difettiNoti"
+    ],
+    "difettiNoti": "Da verificare.",
+    "id": "hyundai-1.6-crdi",
+    "sigla": "1.6 CRDi (U2)",
+    "costruttore": "Hyundai / Kia",
+    "cilindrata": 1582,
+    "cilindri": 4,
+    "alimentazione": "diesel",
+    "aspirazione": "turbo",
+    "distribuzione": "catena",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "hyundai-1.6-crdi-115",
+        "potenzaCv": 115,
+        "potenzaKw": 85,
+        "coppiaNm": 280,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "hyundai-1.6-crdi-136",
+        "potenzaCv": 136,
+        "potenzaKw": 100,
+        "coppiaNm": 280,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "coppiaNm",
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita"
+    ],
+    "difettiNoti": "Bifuel di fabbrica. Verificare scadenza serbatoio GPL e stato catena.",
+    "id": "opel-1.4-turbo-gpl",
+    "sigla": "1.4 Turbo GPL-Tech (A14NET)",
+    "costruttore": "Opel",
+    "cilindrata": 1364,
+    "cilindri": 4,
+    "alimentazione": "GPL",
+    "aspirazione": "turbo",
+    "distribuzione": "catena",
+    "affidabilita": 3,
+    "varianti": [
+      {
+        "id": "opel-1.4-turbo-gpl-140",
+        "potenzaCv": 140,
+        "potenzaKw": 103,
+        "coppiaNm": 200,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  },
+  {
+    "intervalloDistribuzioneKm": null,
+    "fonti": [],
+    "daVerificare": [
+      "affidabilita"
+    ],
+    "difettiNoti": "Aspirato ad alta compressione, generalmente robusto.",
+    "id": "mazda-2.0-skyactiv-g",
+    "sigla": "Skyactiv-G 2.0",
+    "costruttore": "Mazda",
+    "cilindrata": 1998,
+    "cilindri": 4,
+    "alimentazione": "benzina",
+    "aspirazione": "aspirato",
+    "distribuzione": "catena",
+    "affidabilita": 4,
+    "varianti": [
+      {
+        "id": "mazda-2.0-skyactiv-g-120",
+        "potenzaCv": 120,
+        "potenzaKw": 88,
+        "coppiaNm": 210,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      },
+      {
+        "id": "mazda-2.0-skyactiv-g-165",
+        "potenzaCv": 165,
+        "potenzaKw": 121,
+        "coppiaNm": 210,
+        "consumoMedio": null,
+        "classeEuro": null,
+        "note": "",
+        "daVerificare": [
+          "consumoMedio",
+          "classeEuro"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,398 @@
+[
+  {
+    "id": "vw-golf-7",
+    "marca": "Volkswagen",
+    "modello": "Golf",
+    "generazione": "VII",
+    "annoInizio": 2012,
+    "annoFine": 2020,
+    "segmento": "C",
+    "pesoVuotoKg": 1250,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "vw-1.0-tsi-110",
+      "vw-1.4-tsi-125",
+      "vw-1.4-tsi-150",
+      "vw-1.5-tsi-evo-130",
+      "vw-1.5-tsi-evo-150",
+      "vw-1.6-tdi-115",
+      "vw-2.0-tdi-150"
+    ]
+  },
+  {
+    "id": "vw-polo-6",
+    "marca": "Volkswagen",
+    "modello": "Polo",
+    "generazione": "VI",
+    "annoInizio": 2017,
+    "annoFine": null,
+    "segmento": "B",
+    "pesoVuotoKg": 1150,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "vw-1.0-tsi-95",
+      "vw-1.0-tsi-110"
+    ]
+  },
+  {
+    "id": "vw-t-roc",
+    "marca": "Volkswagen",
+    "modello": "T-Roc",
+    "generazione": "I",
+    "annoInizio": 2017,
+    "annoFine": null,
+    "segmento": "SUV-C",
+    "pesoVuotoKg": 1300,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "vw-1.0-tsi-110",
+      "vw-1.5-tsi-evo-150",
+      "vw-1.6-tdi-115",
+      "vw-2.0-tdi-150"
+    ]
+  },
+  {
+    "id": "fiat-panda-3",
+    "marca": "Fiat",
+    "modello": "Panda",
+    "generazione": "III",
+    "annoInizio": 2012,
+    "annoFine": null,
+    "segmento": "A",
+    "pesoVuotoKg": 950,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "fiat-1.2-fire-69",
+      "fiat-0.9-twinair-85",
+      "fiat-1.3-multijet-75",
+      "fiat-1.0-firefly-hybrid-70"
+    ]
+  },
+  {
+    "id": "fiat-500",
+    "marca": "Fiat",
+    "modello": "500",
+    "generazione": "2007",
+    "annoInizio": 2007,
+    "annoFine": 2024,
+    "segmento": "A",
+    "pesoVuotoKg": 950,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "fiat-1.2-fire-69",
+      "fiat-0.9-twinair-85",
+      "fiat-1.3-multijet-95",
+      "fiat-1.0-firefly-hybrid-70"
+    ]
+  },
+  {
+    "id": "fiat-punto-evo",
+    "marca": "Fiat",
+    "modello": "Punto",
+    "generazione": "Evo / 2012",
+    "annoInizio": 2009,
+    "annoFine": 2018,
+    "segmento": "B",
+    "pesoVuotoKg": 1050,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "fiat-1.2-fire-69",
+      "fiat-1.4-fire-gpl-77",
+      "fiat-1.3-multijet-75",
+      "fiat-1.3-multijet-95"
+    ]
+  },
+  {
+    "id": "fiat-tipo",
+    "marca": "Fiat",
+    "modello": "Tipo",
+    "generazione": "2016",
+    "annoInizio": 2016,
+    "annoFine": null,
+    "segmento": "C",
+    "pesoVuotoKg": 1250,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "fiat-1.3-multijet-95",
+      "fiat-1.4-fire-gpl-77"
+    ]
+  },
+  {
+    "id": "peugeot-208-2",
+    "marca": "Peugeot",
+    "modello": "208",
+    "generazione": "II",
+    "annoInizio": 2019,
+    "annoFine": null,
+    "segmento": "B",
+    "pesoVuotoKg": 1100,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "psa-1.2-puretech-100",
+      "psa-1.2-puretech-130",
+      "psa-1.5-bluehdi-102"
+    ]
+  },
+  {
+    "id": "peugeot-308-2",
+    "marca": "Peugeot",
+    "modello": "308",
+    "generazione": "II",
+    "annoInizio": 2013,
+    "annoFine": 2021,
+    "segmento": "C",
+    "pesoVuotoKg": 1200,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "psa-1.2-puretech-110",
+      "psa-1.2-puretech-130",
+      "psa-1.5-bluehdi-102",
+      "psa-1.5-bluehdi-130"
+    ]
+  },
+  {
+    "id": "renault-clio-4",
+    "marca": "Renault",
+    "modello": "Clio",
+    "generazione": "IV",
+    "annoInizio": 2012,
+    "annoFine": 2019,
+    "segmento": "B",
+    "pesoVuotoKg": 1050,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "renault-0.9-tce-90",
+      "renault-1.5-dci-90",
+      "renault-1.5-dci-110"
+    ]
+  },
+  {
+    "id": "renault-captur-1",
+    "marca": "Renault",
+    "modello": "Captur",
+    "generazione": "I",
+    "annoInizio": 2013,
+    "annoFine": 2019,
+    "segmento": "SUV-B",
+    "pesoVuotoKg": 1150,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "renault-0.9-tce-90",
+      "renault-1.3-tce-130",
+      "renault-1.5-dci-90",
+      "renault-1.5-dci-110"
+    ]
+  },
+  {
+    "id": "dacia-sandero-2",
+    "marca": "Dacia",
+    "modello": "Sandero",
+    "generazione": "II",
+    "annoInizio": 2012,
+    "annoFine": 2020,
+    "segmento": "B",
+    "pesoVuotoKg": 1000,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "renault-0.9-tce-90",
+      "renault-1.5-dci-90"
+    ]
+  },
+  {
+    "id": "toyota-yaris-4",
+    "marca": "Toyota",
+    "modello": "Yaris",
+    "generazione": "IV",
+    "annoInizio": 2020,
+    "annoFine": null,
+    "segmento": "B",
+    "pesoVuotoKg": 1100,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "toyota-1.5-hybrid-116"
+    ]
+  },
+  {
+    "id": "toyota-auris-2",
+    "marca": "Toyota",
+    "modello": "Auris",
+    "generazione": "II",
+    "annoInizio": 2012,
+    "annoFine": 2018,
+    "segmento": "C",
+    "pesoVuotoKg": 1350,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "toyota-1.8-hybrid-136"
+    ]
+  },
+  {
+    "id": "toyota-corolla-12",
+    "marca": "Toyota",
+    "modello": "Corolla",
+    "generazione": "XII",
+    "annoInizio": 2019,
+    "annoFine": null,
+    "segmento": "C",
+    "pesoVuotoKg": 1350,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "toyota-1.8-hybrid-122"
+    ]
+  },
+  {
+    "id": "ford-fiesta-7",
+    "marca": "Ford",
+    "modello": "Fiesta",
+    "generazione": "VII",
+    "annoInizio": 2017,
+    "annoFine": 2023,
+    "segmento": "B",
+    "pesoVuotoKg": 1100,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "ford-1.0-ecoboost-100",
+      "ford-1.0-ecoboost-125"
+    ]
+  },
+  {
+    "id": "hyundai-i20-2",
+    "marca": "Hyundai",
+    "modello": "i20",
+    "generazione": "II",
+    "annoInizio": 2014,
+    "annoFine": 2020,
+    "segmento": "B",
+    "pesoVuotoKg": 1100,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "hyundai-1.0-tgdi-100",
+      "hyundai-1.0-tgdi-120"
+    ]
+  },
+  {
+    "id": "kia-ceed-3",
+    "marca": "Kia",
+    "modello": "Ceed",
+    "generazione": "III",
+    "annoInizio": 2018,
+    "annoFine": null,
+    "segmento": "C",
+    "pesoVuotoKg": 1300,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "hyundai-1.0-tgdi-120",
+      "hyundai-1.6-crdi-115",
+      "hyundai-1.6-crdi-136"
+    ]
+  },
+  {
+    "id": "opel-astra-j",
+    "marca": "Opel",
+    "modello": "Astra",
+    "generazione": "J",
+    "annoInizio": 2009,
+    "annoFine": 2015,
+    "segmento": "C",
+    "pesoVuotoKg": 1400,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "opel-1.4-turbo-gpl-140"
+    ]
+  },
+  {
+    "id": "mazda-3-3",
+    "marca": "Mazda",
+    "modello": "3",
+    "generazione": "III",
+    "annoInizio": 2013,
+    "annoFine": 2019,
+    "segmento": "C",
+    "pesoVuotoKg": 1250,
+    "daVerificare": [
+      "pesoVuotoKg",
+      "annoInizio",
+      "annoFine"
+    ],
+    "varianti": [
+      "mazda-2.0-skyactiv-g-120",
+      "mazda-2.0-skyactiv-g-165"
+    ]
+  }
+]
